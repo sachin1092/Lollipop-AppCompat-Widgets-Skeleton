@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -446,8 +447,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
         }, 3000);
     }
 
-    private void goToNavDrawerItem(int item) {
-        Intent intent;
+    protected void goToNavDrawerItem(int item) {
         switch (item) {
             case NAVDRAWER_ITEM_SECTION1:
                 break;
@@ -580,7 +580,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
         if (isSeparator(itemId)) {
             // we are done
-            UIUtils.setAccessibilityIgnore(view);
+            setAccessibilityIgnore(view);
             return view;
         }
 
@@ -717,5 +717,14 @@ public abstract class BaseActivity extends ActionBarActivity implements
     @Override
     public boolean canSwipeRefreshChildScrollUp() {
         return false;
+    }
+
+    public static void setAccessibilityIgnore(View view) {
+        view.setClickable(false);
+        view.setFocusable(false);
+        view.setContentDescription("");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        }
     }
 }
