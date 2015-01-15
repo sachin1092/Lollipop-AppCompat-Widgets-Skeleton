@@ -28,31 +28,13 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//import com.callizto.xyztravelapp.R;
-//import com.callizto.xyztravelapp.ui.views.MultiSwipeRefreshLayout;
-//import com.callizto.xyztravelapp.ui.views.ScrimInsetsScrollView;
-//import com.callizto.xyztravelapp.utils.LUtils;
-//import com.callizto.xyztravelapp.utils.PrefUtils;
-//import com.callizto.xyztravelapp.utils.UIUtils;
-//import com.nineoldandroids.animation.ArgbEvaluator;
-//import com.nineoldandroids.animation.ObjectAnimator;
-//import com.nineoldandroids.animation.TypeEvaluator;
-//import com.nineoldandroids.animation.ValueAnimator;
-
 import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.ScrimInsetsScrollView;
+import com.sachinshinde.lollipopappcompatskeleton.utils.LUtils;
 
 import java.util.ArrayList;
 
-//import static com.callizto.xyztravelapp.utils.LogUtils.LOGD;
-//import static com.callizto.xyztravelapp.utils.LogUtils.LOGW;
-//import static com.callizto.xyztravelapp.utils.LogUtils.makeLogTag;
-
-
-/**
- * Created by sachin on 28/10/14.
- */
 public abstract class BaseActivity extends ActionBarActivity implements
         SharedPreferences.OnSharedPreferenceChangeListener,
         MultiSwipeRefreshLayout.CanChildScrollUpCallback {
@@ -81,34 +63,25 @@ public abstract class BaseActivity extends ActionBarActivity implements
     // symbols for navdrawer items (indices must correspond to array below). This is
     // not a list of items that are necessarily *present* in the Nav Drawer; rather,
     // it's a list of all possible items.
-    protected static final int NAVDRAWER_ITEM_OVERVIEW = 0;
-    protected static final int NAVDRAWER_ITEM_MAP_VIEW = 1;
-    protected static final int NAVDRAWER_ITEM_REARRANGE = 2;
-    protected static final int NAVDRAWER_ITEM_SETTING = 3;
-    protected static final int NAVDRAWER_ITEM_WEATHER_STAT = 4;
-    protected static final int NAVDRAWER_ITEM_HELP = 5;
-    protected static final int NAVDRAWER_ITEM_SHAREAPP = 6;
-    protected static final int NAVDRAWER_ITEM_RATE = 7;
-    protected static final int NAVDRAWER_ITEM_ABOUT = 8;
-    protected static final int NAVDRAWER_ITEM_MOREBYDEV = 9;
+    protected static final int NAVDRAWER_ITEM_SECTION1 = 0;
+    protected static final int NAVDRAWER_ITEM_SECTION2 = 1;
+    protected static final int NAVDRAWER_ITEM_SECTION3 = 2;
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
     protected static final int NAVDRAWER_ITEM_SEPARATOR = -2;
     protected static final int NAVDRAWER_ITEM_SEPARATOR_SPECIAL = -3;
 
     // titles for navdrawer items (indices must correspond to the above)
     private static final int[] NAVDRAWER_TITLE_RES_ID = new int[]{
-            R.string.navdrawer_myprofile,
-            R.string.navdrawer_events,
-            R.string.navdrawer_friends,
-            R.string.navdrawer_settings
+            R.string.title_section1,
+            R.string.title_section2,
+            R.string.title_section3
     };
 
     // icons for navdrawer items (indices must correspond to above array)
     private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
-            R.drawable.ic_profile,  // My Profile
-            R.drawable.ic_event,  // Events
-            R.drawable.ic_friends, // Friends
-            R.drawable.ic_settings // Settings
+            R.drawable.ic_settings,  // Section 1
+            R.drawable.ic_settings,  // Section 2
+            R.drawable.ic_settings, // Section 3
     };
 
     // delay to launch nav drawer item, to allow close animation to play
@@ -344,13 +317,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
         // populate the nav drawer with the correct items
         populateNavDrawer();
 
-        // When the user runs the app for the first time, we want to land them with the
-        // navigation drawer open. But just the first time.
-        if (!PrefUtils.isWelcomeDone(this)) {
-            // first run of the app starts with the nav drawer open
-            PrefUtils.markWelcomeDone(this);
-            mDrawerLayout.openDrawer(Gravity.START);
-        }
     }
 
     @Override
@@ -387,52 +353,16 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
     /** Populates the navigation drawer with the appropriate items. */
     private void populateNavDrawer() {
-//        boolean attendeeAtVenue = PrefUtils.isAttendeeAtVenue(this);
         mNavDrawerItems.clear();
-
-        // decide which items will appear in the nav drawer
-//        if (AccountUtils.hasActiveAccount(this)) {
-//            // Only logged-in users can save sessions, so if there is no active account,
-//            // there is no My Schedule
-            mNavDrawerItems.add(NAVDRAWER_ITEM_OVERVIEW);
-//        } else {
-            // If no active account, show Sign In
-//            mNavDrawerItems.add(NAVDRAWER_ITEM_SIGN_IN);
-//        }
-
-        // Explore is always shown
-        mNavDrawerItems.add(NAVDRAWER_ITEM_MAP_VIEW);
-
-        mNavDrawerItems.add(NAVDRAWER_ITEM_WEATHER_STAT);
+        mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION1);
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR);
 
-        // If the attendee is on-site, show Map on the nav drawer
-//        if (attendeeAtVenue) {
-            mNavDrawerItems.add(NAVDRAWER_ITEM_REARRANGE);
-//        }
-
-
-        // If attendee is on-site, show the People I've Met item
-//        if (attendeeAtVenue) {
-            mNavDrawerItems.add(NAVDRAWER_ITEM_SETTING);
-//        }
-
-        // If the experts directory hasn't expired, show it
-//        if (!Config.hasExpertsDirectoryExpired()) {
-
-//        }
+        mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION2);
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR_SPECIAL);
 
-        // Other items that are always in the nav drawer irrespective of whether the
-        // attendee is on-site or remote:
-        mNavDrawerItems.add(NAVDRAWER_ITEM_SHAREAPP);
-        mNavDrawerItems.add(NAVDRAWER_ITEM_RATE);
-        mNavDrawerItems.add(NAVDRAWER_ITEM_HELP);
-        mNavDrawerItems.add(NAVDRAWER_ITEM_ABOUT);
-        mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR_SPECIAL);
-        mNavDrawerItems.add(NAVDRAWER_ITEM_MOREBYDEV);
+        mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION3);
 
         createNavDrawerItems();
     }
@@ -479,19 +409,17 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-//        if (key.equals(PrefUtils.PREF_ATTENDEE_AT_VENUE)) {
+
             Log.d(TAG, "Attendee at venue preference changed, repopulating nav drawer and menu.");
             populateNavDrawer();
             invalidateOptionsMenu();
-//        }
+
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        Log.d("TheWeatherApp", "onPostCreate");
         setupNavDrawer();
-//        setupAccountBox();
 
         trySetupSwipeRefresh();
         updateSwipeRefreshProgressBarTop();
@@ -521,31 +449,11 @@ public abstract class BaseActivity extends ActionBarActivity implements
     private void goToNavDrawerItem(int item) {
         Intent intent;
         switch (item) {
-            case NAVDRAWER_ITEM_OVERVIEW:
+            case NAVDRAWER_ITEM_SECTION1:
                 break;
-            case NAVDRAWER_ITEM_MAP_VIEW:
+            case NAVDRAWER_ITEM_SECTION2:
                 break;
-            case NAVDRAWER_ITEM_REARRANGE:
-                break;
-            case NAVDRAWER_ITEM_SETTING:
-                break;
-            case NAVDRAWER_ITEM_WEATHER_STAT:
-                break;
-            case NAVDRAWER_ITEM_HELP:
-                break;
-            case NAVDRAWER_ITEM_SHAREAPP:
-                break;
-            case NAVDRAWER_ITEM_RATE:
-                break;
-            case NAVDRAWER_ITEM_ABOUT:
-//                mHandler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        LUtils.launchActivity(BaseActivity.this,findViewById(R.id.toolbar_actionbar), AboutClass.class);
-//                    }
-//                }, NAVDRAWER_LAUNCH_DELAY);
-                break;
-            case NAVDRAWER_ITEM_MOREBYDEV:
+            case NAVDRAWER_ITEM_SECTION3:
                 break;
         }
     }
@@ -703,7 +611,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
     }
 
     private boolean isSpecialItem(int itemId) {
-        return itemId == NAVDRAWER_ITEM_SETTING || itemId == NAVDRAWER_ITEM_REARRANGE || itemId == NAVDRAWER_ITEM_HELP || itemId == NAVDRAWER_ITEM_SHAREAPP || itemId == NAVDRAWER_ITEM_RATE || itemId == NAVDRAWER_ITEM_ABOUT || itemId == NAVDRAWER_ITEM_MOREBYDEV;
+        return itemId == NAVDRAWER_ITEM_SECTION3;
     }
 
     private boolean isSeparator(int itemId) {

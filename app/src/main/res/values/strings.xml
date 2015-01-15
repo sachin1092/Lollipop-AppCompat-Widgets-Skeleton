@@ -11,15 +11,4 @@
     <string name="action_settings">Settings</string>
 
 
-    <string name="navdrawer_myprofile">My profile</string>
-
-
-    <string name="navdrawer_events">Events</string>
-
-
-    <string name="navdrawer_friends">Friends</string>
-
-
-    <string name="navdrawer_settings">Settings</string>
-
 </resources>
