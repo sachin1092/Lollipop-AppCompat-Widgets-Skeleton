@@ -1,8 +1,221 @@
 <resources>
 
+    <!-- Root styles that vary by API level -->
+    <!-- Disable RTL support on older devices -->
+    <!-- Prevents crash on certain devices to namespace conflict -->
+    <style name="FrameworkRoot.Theme" parent="Theme.AppCompat.Light" />
+    <style name="FrameworkRoot.Widget" parent="Theme.AppCompat" />
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="Theme" parent="FrameworkRoot.Theme">
+        <!-- Only needed for pre-L -->
+        <item name="android:editTextBackground">@drawable/edit_text</item>
+        <item name="android:editTextStyle">@style/Widget.travelapp.EditText</item>
+    </style>
+
+    <style name="Theme.travelapp.Base" parent="Theme">
+        <item name="actionBarIconColor">#fff</item>
+        <item name="actionBarInsetStart">@dimen/keyline_2</item>
+        <item name="homeAsUpIndicator">@drawable/ic_up</item>
+        <item name="spinnerBarInsetStart">@dimen/keyline_2_minus_16dp</item>
+        <item name="popupItemBackground">?android:selectableItemBackground</item>
+        <item name="photoItemForeground">?android:selectableItemBackground</item>
+        <item name="photoItemForegroundBorderless">?android:selectableItemBackground</item>
+
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="colorAccent">@color/theme_accent_2</item>
+
+        <item name="android:textColorLink">@color/theme_accent_2</item>
+
+        <item name="windowActionBar">false</item>
+
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_up</item>
+
+        <item name="android:popupMenuStyle">@style/Widget.travelapp.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.travelapp.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.travelapp.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+
+        <item name="searchViewStyle">@style/Widget.travelapp.SearchView</item>
+    </style>
+
+    <style name="Theme.travelapp" parent="Theme.travelapp.Base" />
+
+    <style name="Theme.travelapp.WithNavDrawer" parent="Theme.travelapp" />
+
+    <style name="Theme.travelapp.Widget" parent="FrameworkRoot.Widget">
+        <item name="android:popupMenuStyle">@style/Widget.travelapp.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.travelapp.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.travelapp.ListView.DropDown</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+    </style>
+
+    <style name="ActionBarThemeOverlay" parent="">
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="colorControlNormal">?actionBarIconColor</item>
+        <item name="colorControlHighlight">#3fff</item>
+    </style>
+
+    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Theme.travelapp.Welcome" parent="Theme.travelapp" />
+
+    <style name="Theme.travelapp.Locations" parent="Theme.travelapp.WithNavDrawer">
+        <item name="actionBarInsetStart">@dimen/keyline_2_minus_16dp</item>
+        <item name="spinnerBarInsetStart">@dimen/keyline_2_minus_16dp</item>
+        <item name="android:windowBackground">@color/gray_background</item>
+    </style>
+
+    <style name="Theme.travelapp.Search" parent="Theme.travelapp">
+        <item name="android:windowBackground">@color/gray_background</item>
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.travelapp.Search.AutoCompleteTextView</item>
+        <item name="colorControlActivated">@color/theme_accent_1</item>
+    </style>
+
+    <style name="Widget.travelapp.Search.AutoCompleteTextView" parent="Widget.AppCompat.Light.AutoCompleteTextView">
+        <item name="android:textColorHint">#5fff</item>
+    </style>
+
+    <style name="Theme.travelapp.VideoLibrary" parent="Theme.travelapp.WithNavDrawer" />
+
+    <style name="Widget.travelapp.HeaderBar.Spinner.Base" parent="Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:dropDownSelector">?android:selectableItemBackground</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:overlapAnchor">true</item>
+    </style>
+
+    <style name="Widget.travelapp.HeaderBar.Spinner" parent="Widget.travelapp.HeaderBar.Spinner.Base" />
+
+    <style name="Widget.travelapp.PopupMenu" parent="Widget.AppCompat.Light.PopupMenu">
+        <item name="android:dropDownSelector">?popupItemBackground</item>
+    </style>
+
+    <style name="Widget.travelapp.ListView.DropDown" parent="Widget.AppCompat.Light.ListView.DropDown">
+        <item name="android:listSelector">?popupItemBackground</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="TextAppearance.LargePopupMenu" parent="TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/body_text_1</item>
+    </style>
+
+    <style name="Widget.travelapp.SearchView" parent="Widget.AppCompat.SearchView" />
+
+    <!-- My Schedule -->
+    <style name="Theme.travelapp.MySchedule" parent="Theme.travelapp.WithNavDrawer" />
+
+    <!-- Intermediary theme for SessionDetails (so we can override it on large screens) -->
+    <style name="Theme.travelapp.SessionDetails.Base" parent="Theme.travelapp">
+        <!--<item name="isFloatingWindow">false</item>-->
+    </style>
+
+    <!-- Session Details -->
+    <style name="Theme.travelapp.SessionDetails" parent="Theme.travelapp.SessionDetails.Base" />
+
+    <!-- Social -->
+    <style name="Theme.travelapp.Social" parent="Theme.travelapp.WithNavDrawer">
+        <item name="android:windowBackground">@color/gray_background</item>
+    </style>
+
+    <!-- Account chooser -->
+    <style name="Theme.travelapp.Accounts" parent="Theme.travelapp">
+        <item name="android:actionBarStyle">@style/ActionBar.Accounts</item>
+    </style>
+
+    <style name="ActionBar.Accounts" parent="">
+        <item name="android:displayOptions">showHome|useLogo</item>
+    </style>
+
+    <!-- People I've Met -->
+    <style name="Theme.travelapp.PeopleIveMet" parent="Theme.travelapp.WithNavDrawer" />
+
+    <!-- Experts -->
+    <style name="Theme.travelapp.ExpertsDirectory" parent="Theme.travelapp.WithNavDrawer" />
+
+    <!-- Misc -->
+    <style name="TabIndicator" />
+
+    <!-- Transparent Action Bar -->
+    <style name="TransparentActionBar" parent="">
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="TranslucentActionBar" parent="">
+        <item name="android:background">@color/translucent_actionbar_background</item>
+    </style>
+
+    <!-- Live stream -->
+    <style name="Theme.travelapp.Livestream" parent="Theme.travelapp">
+        <item name="android:windowBackground">@color/gray_background</item>
+        <item name="actionBarInsetStart">@dimen/keyline_2_minus_16dp</item>
+    </style>
+
+    <!-- Empty views -->
+    <style name="EmptyText">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/body_text_disabled</item>
+    </style>
+
+    <style name="Widget.travelapp.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edit_text</item>
+    </style>
+
+    <style name="HeaderBar">
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:elevation">@dimen/headerbar_elevation</item>
+    </style>
+
+    <!-- Explore item text appearances -->
+    <style name="ExploreItem.Title" parent="">
+        <item name="android:textColor">#fff</item> <!-- a bit brighter than body_text_1_inverse to stand out more -->
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ExploreItem.Title.Hero">
+        <item name="android:textSize">@dimen/text_size_xlarge</item>
+        <item name="android:maxLines">3</item>
+    </style>
+
+    <style name="ExploreItem.Subtitle" parent="">
+        <item name="android:textColor">@color/body_text_2_inverse</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ExploreItem.Subtitle.Hero" />
+
+    <style name="ExploreItem.Snippet" parent="">
+        <item name="android:textColor">@color/body_text_2_inverse</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ExploreItem.Category" parent="">
+        <item name="android:textColor">@color/body_text_2_inverse</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="fade_animation">
+        <item name="@android:windowEnterAnimation">@anim/popup_show</item>
+        <item name="@android:windowExitAnimation">@anim/popup_hide</item>
     </style>
 
 </resources>

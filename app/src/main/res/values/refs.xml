@@ -1,0 +1,3 @@
+<resources>
+    <item name="header_shadow" type="drawable">@drawable/bottom_shadow</item>
+</resources>

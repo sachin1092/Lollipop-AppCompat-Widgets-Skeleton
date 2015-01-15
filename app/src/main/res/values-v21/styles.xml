@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+    <style name="Theme" parent="FrameworkRoot.Theme" /> <!-- doesn't contain the pre-L code from the values/styles.xml -->
+
+    <style name="Theme.travelapp" parent="Theme.travelapp.Base">
+
+        <item name="android:navigationBarColor">#000</item>
+        <item name="android:statusBarColor">?colorPrimaryDark</item>
+
+        <item name="android:alertDialogTheme">@style/Theme.travelapp.AlertDialog</item>
+    </style>
+
+    <style name="Theme.travelapp.WithNavDrawer" parent="Theme.travelapp">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.travelapp.AlertDialog" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">@color/theme_primary</item>
+        <item name="android:colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="android:colorAccent">@color/theme_accent_2</item>
+    </style>
+
+    <style name="Widget.travelapp.HeaderBar.Spinner" parent="Widget.travelapp.HeaderBar.Spinner.Base">
+        <item name="android:theme">@style/ActionBarThemeOverlay</item>
+    </style>
+
+    <style name="TabIndicator">
+        <item name="android:theme">@style/ActionBarThemeOverlay</item>
     </style>
 </resources>
