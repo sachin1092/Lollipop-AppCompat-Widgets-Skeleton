@@ -7,7 +7,13 @@ Compatible to work on 4.0+
 Based on Google IO, makes easier for developers to add features from the app.
 <br/>
 Features include:
+* FAB
 * Google+ Progress Dialog
+* AppCompat Switch
+* Tint EditText
+* Tint CheckBox
+* Tint RadioButton
+* TextViewCompat
 * SnackBar
 * Drawer Layout
 * Bezel ImageView
