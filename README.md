@@ -7,10 +7,16 @@ Compatible to work on 4.0+
 Based on Google IO, makes easier for developers to add features from the app.
 <br/>
 Features include:
+* Google+ Progress Dialog
+* SnackBar
 * Drawer Layout
 * Bezel ImageView
 * Lollipop's New swipe down to refresh
 * Nested Fragments
  
+DEMO:
+===
+![alt text](https://github.com/sachin1092/Lollipop-AppCompat-Skeleton/blob/master/art/demo.gif "DEMO")
+
 
 Contributions are most welcomed.
