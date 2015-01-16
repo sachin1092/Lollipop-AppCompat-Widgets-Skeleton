@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.widget.Toast;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.fragments.Section1Fragment;
@@ -17,7 +18,7 @@ import com.sachinshinde.lollipopappcompatskeleton.ui.views.DrawShadowFrameLayout
 public class MainActivity extends BaseActivity implements
         CallbackFragment.Callbacks  {
 
-    Section1Fragment mEventsFrag;
+    int currFrag = BaseActivity.NAVDRAWER_ITEM_SECTION1;
 
     @Override
     public void onItemSelected(long id) {
@@ -39,66 +40,46 @@ public class MainActivity extends BaseActivity implements
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-//        if (getSupportFragmentManager().findFragmentById(R.id.sessions_fragment) == null) {
+        s1 = new Section1Fragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.sessions_fragment,
-                            new Section1Fragment()).commit();
-//        }
+                            s1).commit();
     }
+
+    Section1Fragment s1;
+    Section2Fragment s2;
+    Section3Fragment s3;
 
     @Override
     protected void goToNavDrawerItem(int item) {
+        currFrag = item;
         FragmentManager fm;
         ft = getSupportFragmentManager().beginTransaction();
-//        ft.disallowAddToBackStack();
         switch (item) {
             case NAVDRAWER_ITEM_SECTION1:
                 fm = MainActivity.this.getSupportFragmentManager();
                 for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
                     fm.popBackStack();
                 }
-//                ft.add(R.id.sessions_fragment, new Section1Fragment());
-                ft.replace(R.id.sessions_fragment, new Section1Fragment());
+                ft.replace(R.id.sessions_fragment, s1 = new Section1Fragment());
                 break;
             case NAVDRAWER_ITEM_SECTION2:
                 fm = MainActivity.this.getSupportFragmentManager();
                 for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
                     fm.popBackStack();
                 }
-                ft.replace(R.id.sessions_fragment, new Section2Fragment());
+                ft.replace(R.id.sessions_fragment, s2 = new Section2Fragment());
                 break;
             case NAVDRAWER_ITEM_SECTION3:
                 fm = MainActivity.this.getSupportFragmentManager();
                 for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
                     fm.popBackStack();
                 }
-                ft.replace(R.id.sessions_fragment, new Section3Fragment());
+                ft.replace(R.id.sessions_fragment, s3 = new Section3Fragment());
                 break;
         }
         ft.addToBackStack(null);
         ft.commit();
-    }
-
-    /**
-     * Converts an intent into a {@link android.os.Bundle} suitable for use as fragment arguments.
-     */
-    public static Bundle intentToFragmentArguments(Intent intent) {
-        Bundle arguments = new Bundle();
-        if (intent == null) {
-            return arguments;
-        }
-
-        final Uri data = intent.getData();
-        if (data != null) {
-            arguments.putParcelable("_uri", data);
-        }
-
-        final Bundle extras = intent.getExtras();
-        if (extras != null) {
-            arguments.putAll(intent.getExtras());
-        }
-
-        return arguments;
     }
 
 
@@ -108,14 +89,14 @@ public class MainActivity extends BaseActivity implements
         mDrawShadowFrameLayout.setShadowVisible(shown, shown);
     }
 
+
     @Override
     public boolean canSwipeRefreshChildScrollUp() {
-        if (mEventsFrag != null) {
-            return true;
-        }
+//        if (mEventsFrag != null) {
+//            return true;
+//        }
         return super.canSwipeRefreshChildScrollUp();
-    }
-    private DrawShadowFrameLayout mDrawShadowFrameLayout;
+    }    private DrawShadowFrameLayout mDrawShadowFrameLayout;
 
     @Override protected int getLayoutResource() {
         return R.layout.activity_main;
@@ -123,6 +104,6 @@ public class MainActivity extends BaseActivity implements
 
     @Override
     protected int getSelfNavDrawerItem() {
-        return BaseActivity.NAVDRAWER_ITEM_SECTION1;
+        return currFrag;
     }
 }

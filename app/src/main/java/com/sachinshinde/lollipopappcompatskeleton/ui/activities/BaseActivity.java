@@ -4,7 +4,6 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -75,11 +74,11 @@ public abstract class BaseActivity extends ActionBarActivity implements
     private static final int[] NAVDRAWER_TITLE_RES_ID = new int[]{
             R.string.title_section1,
             R.string.title_section2,
-            R.string.title_section3
+            R.string.title_section3,
     };
 
     // icons for navdrawer items (indices must correspond to above array)
-    private static final int[] NAVDRAWER_ICON_RES_ID = new int[] {
+    private static final int[] NAVDRAWER_ICON_RES_ID = new int[]{
             R.drawable.ic_settings,  // Section 1
             R.drawable.ic_settings,  // Section 2
             R.drawable.ic_settings, // Section 3
@@ -124,7 +123,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        RecentTasksStyler.styleRecentTasksEntry(this);
         setContentView(getLayoutResource());
         getActionBarToolbar();
         mHandler = new Handler();
@@ -136,12 +134,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
         if (ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
         }
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
-//        if (toolbar != null) {
-//            setSupportActionBar(toolbar);
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        }
 
         mLUtils = LUtils.getInstance(this);
         mThemedStatusBarColor = getResources().getColor(R.color.theme_primary_dark);
@@ -233,28 +225,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
             mDrawerLayout = null;
             return;
         }
-
-//        if (navDrawer != null) {
-//            final View chosenAccountContentView = findViewById(R.id.chosen_account_content_view);
-//            final View chosenAccountView = findViewById(R.id.chosen_account_view);
-//            final int navDrawerChosenAccountHeight = getResources().getDimensionPixelSize(
-//                    R.dimen.navdrawer_chosen_account_height);
-//            navDrawer.setOnInsetsCallback(new ScrimInsetsScrollView.OnInsetsCallback() {
-//                @Override
-//                public void onInsetsChanged(Rect insets) {
-//                    ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams)
-//                            chosenAccountContentView.getLayoutParams();
-//                    lp.topMargin = insets.top;
-//                    chosenAccountContentView.setLayoutParams(lp);
-//
-//                    ViewGroup.LayoutParams lp2 = chosenAccountView.getLayoutParams();
-//                    lp2.height = navDrawerChosenAccountHeight + insets.top;
-//                    chosenAccountView.setLayoutParams(lp2);
-//                }
-//            });
-//        }
-
-        if (mActionBarToolbar != null) {
+    if (mActionBarToolbar != null) {
             mActionBarToolbar.setNavigationIcon(R.drawable.ic_drawer);
             mActionBarToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
@@ -264,13 +235,11 @@ public abstract class BaseActivity extends ActionBarActivity implements
             });
         }
 
-//        mDrawerToggle= new ActionBarDrawerToggle(this, mDrawerLayout, (Toolbar) findViewById(R.id.toolbar_actionbar), R.string.app_name, R.string.app_name){
-//
-//        };
+
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 mDrawerLayout,         /* DrawerLayout object */
-                (Toolbar) findViewById(R.id.toolbar_actionbar),  /* nav drawer icon to replace 'Up' caret */
+                (Toolbar) findViewById(R.id.toolbar_actionbar),  /* toolbar object */
                 R.string.app_name,  /* "open drawer" description */
                 R.string.app_name  /* "close drawer" description */
         ) {
@@ -278,7 +247,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-//                getActionBar().setTitle(mTitle);
                 if (mDeferredOnDrawerClosedRunnable != null) {
                     mDeferredOnDrawerClosedRunnable.run();
                     mDeferredOnDrawerClosedRunnable = null;
@@ -290,7 +258,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-//                getActionBar().setTitle(mDrawerTitle);
                 onNavDrawerStateChanged(true, false);
             }
 
@@ -326,12 +293,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-//    @Override
-//    public void setContentView(int layoutResID) {
-//        super.setContentView(layoutResID);
-//        getActionBarToolbar();
-////        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//    }
 
     // Subclasses can override this for custom behavior
     protected void onNavDrawerStateChanged(boolean isOpen, boolean isAnimating) {
@@ -340,7 +301,8 @@ public abstract class BaseActivity extends ActionBarActivity implements
         }
     }
 
-    protected void onNavDrawerSlide(float offset) {}
+    protected void onNavDrawerSlide(float offset) {
+    }
 
     protected boolean isNavDrawerOpen() {
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(Gravity.START);
@@ -352,9 +314,12 @@ public abstract class BaseActivity extends ActionBarActivity implements
         }
     }
 
-    /** Populates the navigation drawer with the appropriate items. */
+    /**
+     * Populates the navigation drawer with the appropriate items.
+     */
     private void populateNavDrawer() {
         mNavDrawerItems.clear();
+
         mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION1);
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR);
@@ -366,15 +331,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
         mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION3);
 
         createNavDrawerItems();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (isNavDrawerOpen()) {
-            closeNavDrawer();
-        } else {
-            super.onBackPressed();
-        }
     }
 
     private void createNavDrawerItems() {
@@ -411,9 +367,9 @@ public abstract class BaseActivity extends ActionBarActivity implements
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
-            Log.d(TAG, "Attendee at venue preference changed, repopulating nav drawer and menu.");
-            populateNavDrawer();
-            invalidateOptionsMenu();
+        Log.d(TAG, "Attendee at venue preference changed, repopulating nav drawer and menu.");
+        populateNavDrawer();
+        invalidateOptionsMenu();
 
     }
 
@@ -433,6 +389,15 @@ public abstract class BaseActivity extends ActionBarActivity implements
             Log.w(TAG, "No view with ID main_content to fade in.");
         }
         mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (isNavDrawerOpen()) {
+            closeNavDrawer();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     protected void requestDataRefresh() {
@@ -467,21 +432,25 @@ public abstract class BaseActivity extends ActionBarActivity implements
         if (isSpecialItem(itemId)) {
             goToNavDrawerItem(itemId);
         } else {
+            final View mainContent = findViewById(R.id.sessions_fragment);
             // launch the target Activity after a short delay, to allow the close animation to play
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     goToNavDrawerItem(itemId);
+                    if (mainContent != null) {
+                        mainContent.animate().alpha(1).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
+                    }
                 }
             }, NAVDRAWER_LAUNCH_DELAY);
 
             // change the active item on the list so the user can see the item changed
             setSelectedNavDrawerItem(itemId);
-//            // fade out the main content
-//            View mainContent = findViewById(R.id.main_content);
-//            if (mainContent != null) {
-//                mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
-//            }
+            // fade out the main content
+
+            if (mainContent != null) {
+                mainContent.animate().alpha(0).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
+            }
         }
 
         mDrawerLayout.closeDrawer(Gravity.START);
@@ -611,7 +580,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
     }
 
     private boolean isSpecialItem(int itemId) {
-        return itemId == NAVDRAWER_ITEM_SECTION3;
+        return itemId == -99;
     }
 
     private boolean isSeparator(int itemId) {
@@ -635,6 +604,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 getResources().getColor(R.color.navdrawer_icon_tint_selected) :
                 getResources().getColor(R.color.navdrawer_icon_tint));
     }
+
     protected void onRefreshingStateChanged(boolean refreshing) {
         if (mSwipeRefreshLayout != null) {
             mSwipeRefreshLayout.setRefreshing(refreshing);
@@ -720,8 +690,8 @@ public abstract class BaseActivity extends ActionBarActivity implements
     }
 
     public static void setAccessibilityIgnore(View view) {
-        view.setClickable(false);
-        view.setFocusable(false);
+//        view.setClickable(false);
+//        view.setFocusable(false);
         view.setContentDescription("");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
