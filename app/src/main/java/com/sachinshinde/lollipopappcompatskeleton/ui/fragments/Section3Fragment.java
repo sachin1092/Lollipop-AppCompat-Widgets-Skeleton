@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
+import com.sachinshinde.lollipopappcompatskeleton.ui.activities.MainActivity;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
+import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
 public class Section3Fragment extends CallbackFragment {
 
@@ -41,10 +44,29 @@ public class Section3Fragment extends CallbackFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.fragment_layout, null);
-        CompatTextView editor = (CompatTextView) result.findViewById(R.id.tvSample);
+        CompatTextView textView = (CompatTextView) result.findViewById(R.id.tvSample);
 
-        editor.setText("Section 1");
+        textView.setText("Section 3");
 
+        result.findViewById(R.id.bButterBar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getActivity(), "Yo!!", Toast.LENGTH_LONG).show();
+                        ((MainActivity)getActivity()).hideButterBar();
+                    }
+                });
+            }
+        });
+
+        result.findViewById(R.id.bProgressDialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UIUtils.getProgressDialog(getActivity());
+            }
+        });
         return (result);
     }
 

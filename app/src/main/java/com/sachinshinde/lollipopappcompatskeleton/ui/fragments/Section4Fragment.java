@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
+import com.sachinshinde.lollipopappcompatskeleton.ui.activities.MainActivity;
+import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
 public class Section4Fragment extends Fragment {
     private static final String KEY_POSITION = "position";
@@ -32,10 +35,30 @@ public class Section4Fragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.fragment_layout, null);
-        CompatTextView editor = (CompatTextView) result.findViewById(R.id.tvSample);
+        CompatTextView textView = (CompatTextView) result.findViewById(R.id.tvSample);
         int position = getArguments().getInt(KEY_POSITION, -1);
 
-        editor.setText(getTitle(position));
+        textView.setText(getTitle(position));
+
+        result.findViewById(R.id.bButterBar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getActivity(), "Yo!!", Toast.LENGTH_LONG).show();
+                        ((MainActivity)getActivity()).hideButterBar();
+                    }
+                });
+            }
+        });
+
+        result.findViewById(R.id.bProgressDialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UIUtils.getProgressDialog(getActivity());
+            }
+        });
 
         return (result);
     }

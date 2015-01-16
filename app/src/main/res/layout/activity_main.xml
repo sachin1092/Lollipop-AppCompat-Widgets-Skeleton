@@ -46,35 +46,11 @@
         </LinearLayout>
 
 
-        <!--&lt;!&ndash; Spinners for additional filters &ndash;&gt;-->
-        <!--<LinearLayout-->
-        <!--android:id="@+id/filters_box"-->
-        <!--android:visibility="gone"-->
-        <!--android:paddingLeft="?spinnerBarInsetStart"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="@dimen/filterbar_height"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--<Spinner style="@style/Widget.theweatherapp.HeaderBar.Spinner"-->
-        <!--android:id="@+id/secondary_filter_spinner_1"-->
-        <!--android:layout_width="@dimen/filter_spinner_width"-->
-        <!--android:layout_weight="@integer/filter_spinner_weight"-->
-        <!--android:layout_height="match_parent" />-->
-
-        <!--<Spinner style="@style/Widget.theweatherapp.HeaderBar.Spinner"-->
-        <!--android:id="@+id/secondary_filter_spinner_2"-->
-        <!--android:layout_width="@dimen/filter_spinner_width"-->
-        <!--android:layout_weight="@integer/filter_spinner_weight"-->
-        <!--android:layout_height="match_parent" />-->
-
-        <!--</LinearLayout>-->
-        <!--</LinearLayout>-->
-
         <!-- Butter bar -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
+            android:layout_gravity="bottom"
             android:layout_marginTop="?actionBarSize">
 
             <include layout="@layout/include_butter_bar" />

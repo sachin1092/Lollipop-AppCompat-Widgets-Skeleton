@@ -31,7 +31,7 @@ import android.widget.TextView;
 import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.ScrimInsetsScrollView;
-import com.sachinshinde.lollipopappcompatskeleton.utils.LUtils;
+import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
     private DrawerLayout mDrawerLayout;
 
     // Helper methods for L APIs
-    private LUtils mLUtils;
+    private UIUtils mLUtils;
 
     private ObjectAnimator mStatusBarColorAnimator;
     private ViewGroup mDrawerItemsListContainer;
@@ -135,7 +135,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
             ab.setDisplayHomeAsUpEnabled(true);
         }
 
-        mLUtils = LUtils.getInstance(this);
+        mLUtils = UIUtils.getInstance(this);
         mThemedStatusBarColor = getResources().getColor(R.color.theme_primary_dark);
         mNormalStatusBarColor = mThemedStatusBarColor;
     }
@@ -629,7 +629,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
         }
     }
 
-    public LUtils getLUtils() {
+    public UIUtils getLUtils() {
         return mLUtils;
     }
 

@@ -1,11 +1,9 @@
 package com.sachinshinde.lollipopappcompatskeleton.ui.activities;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.widget.Toast;
+import android.view.View;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.fragments.Section1Fragment;
@@ -13,6 +11,7 @@ import com.sachinshinde.lollipopappcompatskeleton.ui.fragments.Section2Fragment;
 import com.sachinshinde.lollipopappcompatskeleton.ui.fragments.Section3Fragment;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.DrawShadowFrameLayout;
+import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
 
 public class MainActivity extends BaseActivity implements
@@ -44,6 +43,17 @@ public class MainActivity extends BaseActivity implements
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.sessions_fragment,
                             s1).commit();
+
+
+    }
+
+    public void showButterBar(String messageText, String actionText, long timeout,
+                              View.OnClickListener listener){
+        UIUtils.setUpButterBar(findViewById(R.id.butter_bar), messageText, actionText, timeout, listener);
+    }
+
+    public void hideButterBar(){
+        findViewById(R.id.butter_bar).setVisibility(View.GONE);
     }
 
     Section1Fragment s1;
