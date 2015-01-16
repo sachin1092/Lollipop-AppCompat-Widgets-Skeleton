@@ -28,10 +28,12 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-
+import com.sachinshinde.lollipopappcompatskeleton.R;
 
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -91,5 +93,27 @@ public class LUtils {
         }
 
         mActivity.getWindow().setStatusBarColor(color);
+    }
+
+    public static void setUpButterBar(View butterBar, String messageText, String actionText,
+                                      View.OnClickListener listener) {
+        if (butterBar == null) {
+            Log.e("ButterBar", "Failed to set up butter bar: it's null.");
+            return;
+        }
+
+        TextView textView = (TextView) butterBar.findViewById(R.id.butter_bar_text);
+        if (textView != null) {
+            textView.setText(messageText);
+        }
+
+        Button button = (Button) butterBar.findViewById(R.id.butter_bar_button);
+        if (button != null) {
+            button.setText(actionText == null ? "" : actionText);
+            button.setVisibility(!TextUtils.isEmpty(actionText) ? View.VISIBLE : View.GONE);
+        }
+
+        button.setOnClickListener(listener);
+        butterBar.setVisibility(View.VISIBLE);
     }
 }

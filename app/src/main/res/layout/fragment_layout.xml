@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageButton
+        android:layout_height="70dp"
+        android:layout_width="70dp"
+        android:clickable="true"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/add_fab"
+        android:id="@+id/ibAddLocation"
+        android:background="@drawable/fab_background"/>
+
+    <android.support.v7.internal.widget.CompatTextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tvSample"
+        android:layout_height="wrap_content" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.internal.widget.TintEditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android is Awesome"/>
+
+    <android.support.v7.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.internal.widget.TintRadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/butter_bar"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:visibility="gone"
+    android:layout_height="@dimen/butter_bar_height"
+    android:background="@color/butter_bar_light"
+    android:layout_gravity="top">
+
+    <TextView
+        android:id="@+id/butter_bar_text"
+        android:layout_width="0dp"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/body_text_2"
+        android:singleLine="false"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical" />
+
+    <Button
+        android:id="@+id/butter_bar_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textAllCaps="true"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="normal"
+        android:layout_marginStart="8dp"
+        android:padding="16dp"
+        android:textColor="@color/body_text_1"
+        android:ellipsize="end"
+        android:layout_gravity="center_vertical"
+        android:background="?android:selectableItemBackground" />
+
+</LinearLayout>

@@ -10,10 +10,10 @@
     <style name="Theme" parent="FrameworkRoot.Theme">
         <!-- Only needed for pre-L -->
         <item name="android:editTextBackground">@drawable/edit_text</item>
-        <item name="android:editTextStyle">@style/Widget.travelapp.EditText</item>
+        <item name="android:editTextStyle">@style/Widget.MyTheme.EditText</item>
     </style>
 
-    <style name="Theme.travelapp.Base" parent="Theme">
+    <style name="Theme.MyTheme.Base" parent="Theme">
         <item name="actionBarIconColor">#fff</item>
         <item name="actionBarInsetStart">@dimen/keyline_2</item>
         <item name="homeAsUpIndicator">@drawable/ic_up</item>
@@ -37,22 +37,22 @@
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_up</item>
 
-        <item name="android:popupMenuStyle">@style/Widget.travelapp.PopupMenu</item>
-        <item name="android:listPopupWindowStyle">@style/Widget.travelapp.PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/Widget.travelapp.ListView.DropDown</item>
+        <item name="android:popupMenuStyle">@style/Widget.MyTheme.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.MyTheme.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.MyTheme.ListView.DropDown</item>
         <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
 
-        <item name="searchViewStyle">@style/Widget.travelapp.SearchView</item>
+        <item name="searchViewStyle">@style/Widget.MyTheme.SearchView</item>
     </style>
 
-    <style name="Theme.travelapp" parent="Theme.travelapp.Base" />
+    <style name="Theme.MyTheme" parent="Theme.MyTheme.Base" />
 
-    <style name="Theme.travelapp.WithNavDrawer" parent="Theme.travelapp" />
+    <style name="Theme.MyTheme.WithNavDrawer" parent="Theme.MyTheme" />
 
-    <style name="Theme.travelapp.Widget" parent="FrameworkRoot.Widget">
-        <item name="android:popupMenuStyle">@style/Widget.travelapp.PopupMenu</item>
-        <item name="android:listPopupWindowStyle">@style/Widget.travelapp.PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/Widget.travelapp.ListView.DropDown</item>
+    <style name="Theme.MyTheme.Widget" parent="FrameworkRoot.Widget">
+        <item name="android:popupMenuStyle">@style/Widget.MyTheme.PopupMenu</item>
+        <item name="android:listPopupWindowStyle">@style/Widget.MyTheme.PopupMenu</item>
+        <item name="android:dropDownListViewStyle">@style/Widget.MyTheme.ListView.DropDown</item>
         <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
     </style>
 
@@ -69,27 +69,27 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="Theme.travelapp.Welcome" parent="Theme.travelapp" />
+    <style name="Theme.MyTheme.Welcome" parent="Theme.MyTheme" />
 
-    <style name="Theme.travelapp.Locations" parent="Theme.travelapp.WithNavDrawer">
+    <style name="Theme.MyTheme.Locations" parent="Theme.MyTheme.WithNavDrawer">
         <item name="actionBarInsetStart">@dimen/keyline_2_minus_16dp</item>
         <item name="spinnerBarInsetStart">@dimen/keyline_2_minus_16dp</item>
         <item name="android:windowBackground">@color/gray_background</item>
     </style>
 
-    <style name="Theme.travelapp.Search" parent="Theme.travelapp">
+    <style name="Theme.MyTheme.Search" parent="Theme.MyTheme">
         <item name="android:windowBackground">@color/gray_background</item>
-        <item name="android:autoCompleteTextViewStyle">@style/Widget.travelapp.Search.AutoCompleteTextView</item>
+        <item name="android:autoCompleteTextViewStyle">@style/Widget.MyTheme.Search.AutoCompleteTextView</item>
         <item name="colorControlActivated">@color/theme_accent_1</item>
     </style>
 
-    <style name="Widget.travelapp.Search.AutoCompleteTextView" parent="Widget.AppCompat.Light.AutoCompleteTextView">
+    <style name="Widget.MyTheme.Search.AutoCompleteTextView" parent="Widget.AppCompat.Light.AutoCompleteTextView">
         <item name="android:textColorHint">#5fff</item>
     </style>
 
-    <style name="Theme.travelapp.VideoLibrary" parent="Theme.travelapp.WithNavDrawer" />
+    <style name="Theme.MyTheme.VideoLibrary" parent="Theme.MyTheme.WithNavDrawer" />
 
-    <style name="Widget.travelapp.HeaderBar.Spinner.Base" parent="Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+    <style name="Widget.MyTheme.HeaderBar.Spinner.Base" parent="Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
         <item name="android:background">?android:selectableItemBackground</item>
         <item name="android:dropDownSelector">?android:selectableItemBackground</item>
         <item name="android:divider">@null</item>
@@ -97,13 +97,13 @@
         <item name="android:overlapAnchor">true</item>
     </style>
 
-    <style name="Widget.travelapp.HeaderBar.Spinner" parent="Widget.travelapp.HeaderBar.Spinner.Base" />
+    <style name="Widget.MyTheme.HeaderBar.Spinner" parent="Widget.MyTheme.HeaderBar.Spinner.Base" />
 
-    <style name="Widget.travelapp.PopupMenu" parent="Widget.AppCompat.Light.PopupMenu">
+    <style name="Widget.MyTheme.PopupMenu" parent="Widget.AppCompat.Light.PopupMenu">
         <item name="android:dropDownSelector">?popupItemBackground</item>
     </style>
 
-    <style name="Widget.travelapp.ListView.DropDown" parent="Widget.AppCompat.Light.ListView.DropDown">
+    <style name="Widget.MyTheme.ListView.DropDown" parent="Widget.AppCompat.Light.ListView.DropDown">
         <item name="android:listSelector">?popupItemBackground</item>
         <item name="android:divider">@null</item>
         <item name="android:dividerHeight">0dp</item>
@@ -113,26 +113,26 @@
         <item name="android:textColor">@color/body_text_1</item>
     </style>
 
-    <style name="Widget.travelapp.SearchView" parent="Widget.AppCompat.SearchView" />
+    <style name="Widget.MyTheme.SearchView" parent="Widget.AppCompat.SearchView" />
 
     <!-- My Schedule -->
-    <style name="Theme.travelapp.MySchedule" parent="Theme.travelapp.WithNavDrawer" />
+    <style name="Theme.MyTheme.MySchedule" parent="Theme.MyTheme.WithNavDrawer" />
 
     <!-- Intermediary theme for SessionDetails (so we can override it on large screens) -->
-    <style name="Theme.travelapp.SessionDetails.Base" parent="Theme.travelapp">
+    <style name="Theme.MyTheme.SessionDetails.Base" parent="Theme.MyTheme">
         <!--<item name="isFloatingWindow">false</item>-->
     </style>
 
     <!-- Session Details -->
-    <style name="Theme.travelapp.SessionDetails" parent="Theme.travelapp.SessionDetails.Base" />
+    <style name="Theme.MyTheme.SessionDetails" parent="Theme.MyTheme.SessionDetails.Base" />
 
     <!-- Social -->
-    <style name="Theme.travelapp.Social" parent="Theme.travelapp.WithNavDrawer">
+    <style name="Theme.MyTheme.Social" parent="Theme.MyTheme.WithNavDrawer">
         <item name="android:windowBackground">@color/gray_background</item>
     </style>
 
     <!-- Account chooser -->
-    <style name="Theme.travelapp.Accounts" parent="Theme.travelapp">
+    <style name="Theme.MyTheme.Accounts" parent="Theme.MyTheme">
         <item name="android:actionBarStyle">@style/ActionBar.Accounts</item>
     </style>
 
@@ -141,10 +141,10 @@
     </style>
 
     <!-- People I've Met -->
-    <style name="Theme.travelapp.PeopleIveMet" parent="Theme.travelapp.WithNavDrawer" />
+    <style name="Theme.MyTheme.PeopleIveMet" parent="Theme.MyTheme.WithNavDrawer" />
 
     <!-- Experts -->
-    <style name="Theme.travelapp.ExpertsDirectory" parent="Theme.travelapp.WithNavDrawer" />
+    <style name="Theme.MyTheme.ExpertsDirectory" parent="Theme.MyTheme.WithNavDrawer" />
 
     <!-- Misc -->
     <style name="TabIndicator" />
@@ -159,7 +159,7 @@
     </style>
 
     <!-- Live stream -->
-    <style name="Theme.travelapp.Livestream" parent="Theme.travelapp">
+    <style name="Theme.MyTheme.Livestream" parent="Theme.MyTheme">
         <item name="android:windowBackground">@color/gray_background</item>
         <item name="actionBarInsetStart">@dimen/keyline_2_minus_16dp</item>
     </style>
@@ -170,7 +170,7 @@
         <item name="android:textColor">@color/body_text_disabled</item>
     </style>
 
-    <style name="Widget.travelapp.EditText" parent="Widget.AppCompat.EditText">
+    <style name="Widget.MyTheme.EditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/edit_text</item>
     </style>
 

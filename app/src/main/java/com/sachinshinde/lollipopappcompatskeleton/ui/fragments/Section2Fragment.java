@@ -2,11 +2,13 @@ package com.sachinshinde.lollipopappcompatskeleton.ui.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.internal.widget.CompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
 
 public class Section2Fragment extends CallbackFragment {
@@ -34,14 +36,18 @@ public class Section2Fragment extends CallbackFragment {
     public Section2Fragment() {
     }
 
-    TextView root;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = new TextView(getActivity());
-        root.setText("Section 2");
-        return root;
+        View result = inflater.inflate(R.layout.fragment_layout, null);
+        CompatTextView editor = (CompatTextView) result.findViewById(R.id.tvSample);
+
+        editor.setText("Section 1");
+
+        return (result);
+
     }
 
     @Override

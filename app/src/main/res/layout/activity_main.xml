@@ -77,7 +77,7 @@
             android:layout_gravity="top"
             android:layout_marginTop="?actionBarSize">
 
-            <!--<include layout="@layout/include_butter_bar" />-->
+            <include layout="@layout/include_butter_bar" />
         </FrameLayout>
     </com.sachinshinde.lollipopappcompatskeleton.ui.views.DrawShadowFrameLayout>
 
