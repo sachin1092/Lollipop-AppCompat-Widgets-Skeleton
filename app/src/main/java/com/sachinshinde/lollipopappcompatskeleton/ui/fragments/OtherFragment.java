@@ -6,15 +6,14 @@ import android.support.v7.internal.widget.CompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
-import com.sachinshinde.lollipopappcompatskeleton.ui.activities.MainActivity;
+import com.sachinshinde.lollipopappcompatskeleton.ui.activities.Activity1;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
 import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
-public class Section2Fragment extends CallbackFragment {
+public class OtherFragment extends CallbackFragment {
 
     /**
      * The fragment's current callback object.
@@ -36,7 +35,7 @@ public class Section2Fragment extends CallbackFragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public Section2Fragment() {
+    public OtherFragment() {
     }
 
 
@@ -52,11 +51,11 @@ public class Section2Fragment extends CallbackFragment {
         result.findViewById(R.id.bButterBar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
+                ((Activity1)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getActivity(), "Yo!!", Toast.LENGTH_LONG).show();
-                        ((MainActivity)getActivity()).hideButterBar();
+                        ((Activity1)getActivity()).hideButterBar();
                     }
                 });
             }

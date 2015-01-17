@@ -63,9 +63,9 @@ public abstract class BaseActivity extends ActionBarActivity implements
     // symbols for navdrawer items (indices must correspond to array below). This is
     // not a list of items that are necessarily *present* in the Nav Drawer; rather,
     // it's a list of all possible items.
-    protected static final int NAVDRAWER_ITEM_SECTION1 = 0;
-    protected static final int NAVDRAWER_ITEM_SECTION2 = 1;
-    protected static final int NAVDRAWER_ITEM_SECTION3 = 2;
+    protected static final int NAVDRAWER_ITEM_ACTIVITY1 = 0;
+    protected static final int NAVDRAWER_ITEM_ACTIVITY2 = 1;
+    protected static final int NAVDRAWER_ITEM_ACTIVITY3 = 2;
     protected static final int NAVDRAWER_ITEM_INVALID = -1;
     protected static final int NAVDRAWER_ITEM_SEPARATOR = -2;
     protected static final int NAVDRAWER_ITEM_SEPARATOR_SPECIAL = -3;
@@ -320,15 +320,15 @@ public abstract class BaseActivity extends ActionBarActivity implements
     private void populateNavDrawer() {
         mNavDrawerItems.clear();
 
-        mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION1);
+        mNavDrawerItems.add(NAVDRAWER_ITEM_ACTIVITY1);
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR);
 
-        mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION2);
+        mNavDrawerItems.add(NAVDRAWER_ITEM_ACTIVITY2);
 
         mNavDrawerItems.add(NAVDRAWER_ITEM_SEPARATOR_SPECIAL);
 
-        mNavDrawerItems.add(NAVDRAWER_ITEM_SECTION3);
+        mNavDrawerItems.add(NAVDRAWER_ITEM_ACTIVITY3);
 
         createNavDrawerItems();
     }
@@ -413,14 +413,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
     }
 
     protected void goToNavDrawerItem(int item) {
-        switch (item) {
-            case NAVDRAWER_ITEM_SECTION1:
-                break;
-            case NAVDRAWER_ITEM_SECTION2:
-                break;
-            case NAVDRAWER_ITEM_SECTION3:
-                break;
-        }
+        /**Implement in child activity**/
     }
 
     private void onNavDrawerItemClicked(final int itemId) {
@@ -690,8 +683,8 @@ public abstract class BaseActivity extends ActionBarActivity implements
     }
 
     public static void setAccessibilityIgnore(View view) {
-//        view.setClickable(false);
-//        view.setFocusable(false);
+        view.setClickable(false);
+        view.setFocusable(false);
         view.setContentDescription("");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);

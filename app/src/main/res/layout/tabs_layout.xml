@@ -1,0 +1,50 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Main layout -->
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <LinearLayout style="@style/HeaderBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar_actionbar" />
+
+            <com.sachinshinde.lollipopappcompatskeleton.ui.views.SlidingTabLayout
+                android:background="@color/tab_background"
+                android:id="@+id/sliding_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:foreground="@drawable/header_shadow">
+
+            <!-- Sessions fragments showing each day of the conference -->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout>
+
+        <include layout="@layout/include_butter_bar" />
+    </LinearLayout>
+
+    <!-- Nav drawer -->
+    <include layout="@layout/navdrawer" />
+</android.support.v4.widget.DrawerLayout>

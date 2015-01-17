@@ -6,18 +6,17 @@ import android.support.v7.internal.widget.CompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
-import com.sachinshinde.lollipopappcompatskeleton.ui.activities.MainActivity;
+import com.sachinshinde.lollipopappcompatskeleton.ui.activities.Activity1;
 import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
-public class Section4Fragment extends Fragment {
+public class Activity1Fragment extends Fragment {
     private static final String KEY_POSITION = "position";
 
-    public static Section4Fragment newInstance(int position) {
-        Section4Fragment frag = new Section4Fragment();
+    public static Activity1Fragment newInstance(int position) {
+        Activity1Fragment frag = new Activity1Fragment();
         Bundle args = new Bundle();
 
         args.putInt(KEY_POSITION, position);
@@ -43,11 +42,11 @@ public class Section4Fragment extends Fragment {
         result.findViewById(R.id.bButterBar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
+                ((Activity1)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getActivity(), "Yo!!", Toast.LENGTH_LONG).show();
-                        ((MainActivity)getActivity()).hideButterBar();
+                        ((Activity1)getActivity()).hideButterBar();
                     }
                 });
             }

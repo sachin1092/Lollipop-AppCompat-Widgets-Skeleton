@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.sachinshinde.lollipopappcompatskeleton.ui.fragments.Section4Fragment;
+import com.sachinshinde.lollipopappcompatskeleton.ui.fragments.Activity1Fragment;
 
 public class SampleAdapter extends FragmentPagerAdapter {
   Context ctxt=null;
@@ -17,16 +17,16 @@ public class SampleAdapter extends FragmentPagerAdapter {
 
   @Override
   public int getCount() {
-    return(10);
+    return(3);
   }
 
   @Override
   public Fragment getItem(int position) {
-    return(Section4Fragment.newInstance(position));
+    return(Activity1Fragment.newInstance(position));
   }
 
   @Override
   public String getPageTitle(int position) {
-    return(Section4Fragment.getTitle(position));
+    return(Activity1Fragment.getTitle(position));
   }
 }
