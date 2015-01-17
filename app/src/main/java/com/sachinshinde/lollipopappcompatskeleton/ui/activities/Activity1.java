@@ -18,9 +18,6 @@ public class Activity1 extends BaseActivity implements
         CallbackFragment.Callbacks  {
 
 
-    private ViewPager mViewPager;
-    private SlidingTabLayout mSlidingTabLayout;
-
     @Override
     public void onItemSelected(long id) {
 
@@ -34,9 +31,9 @@ public class Activity1 extends BaseActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(buildAdapter());
-        mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        SlidingTabLayout mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setCustomTabView(R.layout.tab_indicator, android.R.id.text1);
         Resources res = getResources();
         mSlidingTabLayout.setSelectedIndicatorColors(res.getColor(R.color.tab_selected_strip));
@@ -57,37 +54,17 @@ public class Activity1 extends BaseActivity implements
 
     }
 
-    public void showButterBar(String messageText, String actionText, long timeout,
-                              View.OnClickListener listener){
-        UIUtils.setUpButterBar(findViewById(R.id.butter_bar), messageText, actionText, timeout, listener);
-    }
-
-    public void hideButterBar(){
-        findViewById(R.id.butter_bar).setVisibility(View.GONE);
-    }
-
-
-    @Override
-    protected void goToNavDrawerItem(int item) {
-    }
-
-
     @Override
     protected void onActionBarAutoShowOrHide(boolean shown) {
         super.onActionBarAutoShowOrHide(shown);
-        mDrawShadowFrameLayout.setShadowVisible(shown, shown);
     }
 
 
     @Override
     public boolean canSwipeRefreshChildScrollUp() {
-//        if (mEventsFrag != null) {
-//            return true;
-//        }
         return super.canSwipeRefreshChildScrollUp();
     }
 
-    private DrawShadowFrameLayout mDrawShadowFrameLayout;
 
     @Override protected int getLayoutResource() {
         return R.layout.tabs_layout;

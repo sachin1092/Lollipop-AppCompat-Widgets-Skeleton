@@ -4,6 +4,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -210,6 +211,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (mDrawerLayout == null) {
+            Log.e("Skeleton", "DrawerLayout is null");
             return;
         }
         mDrawerLayout.setStatusBarBackgroundColor(
@@ -218,7 +220,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 mDrawerLayout.findViewById(R.id.navdrawer);
         if (selfItem == NAVDRAWER_ITEM_INVALID) {
             // do not show a nav drawer
-            Log.d("TheWeatherApp", "returning");
+            Log.e("Skeleton", "returning");
             if (navDrawer != null) {
                 ((ViewGroup) navDrawer.getParent()).removeView(navDrawer);
             }
@@ -402,7 +404,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
     protected void requestDataRefresh() {
 
-        //mManualSyncRequest = true;
         Log.d(TAG, "Requesting manual data refresh.");
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -413,7 +414,20 @@ public abstract class BaseActivity extends ActionBarActivity implements
     }
 
     protected void goToNavDrawerItem(int item) {
-        /**Implement in child activity**/
+        switch(item){
+            case BaseActivity.NAVDRAWER_ITEM_ACTIVITY1:
+                startActivity(new Intent(this, Activity1.class));
+                finish();
+                break;
+            case BaseActivity.NAVDRAWER_ITEM_ACTIVITY2:
+                startActivity(new Intent(this, Activity2.class));
+                finish();
+                break;
+            case BaseActivity.NAVDRAWER_ITEM_ACTIVITY3:
+                startActivity(new Intent(this, Activity3.class));
+                finish();
+                break;
+        }
     }
 
     private void onNavDrawerItemClicked(final int itemId) {
@@ -458,6 +472,15 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 R.dimen.action_bar_auto_hide_min_y);
         mActionBarAutoHideSensivity = getResources().getDimensionPixelSize(
                 R.dimen.action_bar_auto_hide_sensivity);
+    }
+
+    public void showButterBar(String messageText, String actionText, long timeout,
+                              View.OnClickListener listener){
+        UIUtils.setUpButterBar(findViewById(R.id.butter_bar), messageText, actionText, timeout, listener);
+    }
+
+    public void hideButterBar(){
+        findViewById(R.id.butter_bar).setVisibility(View.GONE);
     }
 
     /**

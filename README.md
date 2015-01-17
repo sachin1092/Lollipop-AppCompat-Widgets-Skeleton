@@ -13,12 +13,12 @@ Features include:
 * Tint EditText
 * Tint CheckBox
 * Tint RadioButton
+* Toolbar Tabs
 * TextViewCompat
 * SnackBar
 * Drawer Layout
 * Bezel ImageView
 * Lollipop's New swipe down to refresh
-* Nested Fragments
  
 DEMO:
 ===

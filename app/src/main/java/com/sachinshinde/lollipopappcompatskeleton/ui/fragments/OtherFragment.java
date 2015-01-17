@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.activities.Activity1;
+import com.sachinshinde.lollipopappcompatskeleton.ui.activities.BaseActivity;
 import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
 import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
@@ -51,7 +52,8 @@ public class OtherFragment extends CallbackFragment {
         result.findViewById(R.id.bButterBar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Activity1)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
+
+                ((BaseActivity)getActivity()).showButterBar("Android is awesome", "I know", 3000, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getActivity(), "Yo!!", Toast.LENGTH_LONG).show();
