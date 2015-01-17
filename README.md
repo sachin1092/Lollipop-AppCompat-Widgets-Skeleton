@@ -22,7 +22,7 @@ Features include:
  
 DEMO:
 ===
-![alt text](https://github.com/sachin1092/Lollipop-AppCompat-Skeleton/blob/master/art/demo.gif "DEMO")
+![alt text](https://github.com/sachin1092/Lollipop-AppCompat-Skeleton/blob/master/art/LollipopAppCompatWidgetSkeleton.gif "DEMO")
 
 
 Contributions are most welcomed.
