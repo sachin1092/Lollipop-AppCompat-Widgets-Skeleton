@@ -47,7 +47,7 @@ public class Activity1Fragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getActivity(), "Yo!!", Toast.LENGTH_LONG).show();
-                        ((Activity1)getActivity()).hideButterBar();
+                        ((BaseActivity)getActivity()).hideButterBar();
                     }
                 });
             }

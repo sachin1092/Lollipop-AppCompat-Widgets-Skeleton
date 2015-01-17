@@ -4,14 +4,11 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.adapters.SampleAdapter;
-import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
-import com.sachinshinde.lollipopappcompatskeleton.ui.views.DrawShadowFrameLayout;
-import com.sachinshinde.lollipopappcompatskeleton.ui.views.SlidingTabLayout;
-import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
+import com.sachinshinde.lollipopappcompatskeleton.ui.widgets.CallbackFragment;
+import com.sachinshinde.lollipopappcompatskeleton.ui.widgets.SlidingTabLayout;
 
 
 public class Activity1 extends BaseActivity implements

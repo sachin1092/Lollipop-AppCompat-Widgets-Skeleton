@@ -8,14 +8,14 @@
     android:layout_height="match_parent">
 
     <!-- Main layout -->
-    <com.sachinshinde.lollipopappcompatskeleton.ui.views.DrawShadowFrameLayout
+    <com.sachinshinde.lollipopappcompatskeleton.ui.widgets.DrawShadowFrameLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
         app:shadowDrawable="@drawable/header_shadow">
 
-        <com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout
+        <com.sachinshinde.lollipopappcompatskeleton.ui.widgets.MultiSwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_marginTop="?actionBarSize"
@@ -28,7 +28,7 @@
                 android:layout_height="match_parent">
 
             </FrameLayout>
-        </com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout>
+        </com.sachinshinde.lollipopappcompatskeleton.ui.widgets.MultiSwipeRefreshLayout>
 
 
         <!-- placeholder, empty except on L -->
@@ -55,7 +55,7 @@
 
             <include layout="@layout/include_butter_bar" />
         </FrameLayout>
-    </com.sachinshinde.lollipopappcompatskeleton.ui.views.DrawShadowFrameLayout>
+    </com.sachinshinde.lollipopappcompatskeleton.ui.widgets.DrawShadowFrameLayout>
 
     <!-- Nav drawer -->
     <include layout="@layout/navdrawer" />

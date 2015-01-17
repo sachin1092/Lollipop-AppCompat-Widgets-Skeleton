@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sachinshinde.lollipopappcompatskeleton.ui.views;
+package com.sachinshinde.lollipopappcompatskeleton.ui.widgets;
 
 import android.R;
 import android.content.Context;

@@ -9,9 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
-import com.sachinshinde.lollipopappcompatskeleton.ui.activities.Activity1;
 import com.sachinshinde.lollipopappcompatskeleton.ui.activities.BaseActivity;
-import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
+import com.sachinshinde.lollipopappcompatskeleton.ui.widgets.CallbackFragment;
 import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
 public class OtherFragment extends CallbackFragment {
@@ -47,7 +46,7 @@ public class OtherFragment extends CallbackFragment {
         View result = inflater.inflate(R.layout.fragment_layout, null);
         CompatTextView textView = (CompatTextView) result.findViewById(R.id.tvSample);
 
-        textView.setText("Section 2");
+        textView.setText(getArguments().getString("Title"));
 
         result.findViewById(R.id.bButterBar).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +56,7 @@ public class OtherFragment extends CallbackFragment {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(getActivity(), "Yo!!", Toast.LENGTH_LONG).show();
-                        ((Activity1)getActivity()).hideButterBar();
+                        ((BaseActivity)getActivity()).hideButterBar();
                     }
                 });
             }

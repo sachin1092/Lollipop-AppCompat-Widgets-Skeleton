@@ -1,4 +1,4 @@
-package com.sachinshinde.lollipopappcompatskeleton.ui.views;
+package com.sachinshinde.lollipopappcompatskeleton.ui.widgets;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;

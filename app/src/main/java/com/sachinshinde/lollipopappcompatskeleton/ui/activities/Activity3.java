@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
 import com.sachinshinde.lollipopappcompatskeleton.ui.fragments.OtherFragment;
-import com.sachinshinde.lollipopappcompatskeleton.ui.views.CallbackFragment;
+import com.sachinshinde.lollipopappcompatskeleton.ui.widgets.CallbackFragment;
 
 /**
  * Created by sachin on 17/1/15.

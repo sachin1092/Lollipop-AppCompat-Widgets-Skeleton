@@ -1,4 +1,4 @@
-<com.sachinshinde.lollipopappcompatskeleton.ui.views.ScrimInsetsScrollView
+<com.sachinshinde.lollipopappcompatskeleton.ui.widgets.ScrimInsetsScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/navdrawer_width"
@@ -34,7 +34,7 @@
                 android:paddingTop="@dimen/keyline_1"
                 android:id="@+id/chosen_account_content_view">
 
-                <com.sachinshinde.lollipopappcompatskeleton.ui.views.BezelImageView
+                <com.sachinshinde.lollipopappcompatskeleton.ui.widgets.BezelImageView
                     android:id="@+id/profile_image"
                     android:layout_width="@dimen/navdrawer_profile_image_size"
                     android:layout_height="@dimen/navdrawer_profile_image_size"
@@ -100,4 +100,4 @@
         </FrameLayout>
     </LinearLayout>
 
-</com.sachinshinde.lollipopappcompatskeleton.ui.views.ScrimInsetsScrollView>
+</com.sachinshinde.lollipopappcompatskeleton.ui.widgets.ScrimInsetsScrollView>

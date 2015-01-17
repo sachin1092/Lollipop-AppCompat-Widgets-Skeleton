@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <!-- Main layout -->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -16,21 +16,24 @@
         <LinearLayout style="@style/HeaderBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:id="@+id/header"
             android:orientation="vertical">
 
             <include layout="@layout/toolbar_actionbar" />
 
-            <com.sachinshinde.lollipopappcompatskeleton.ui.views.SlidingTabLayout
+            <com.sachinshinde.lollipopappcompatskeleton.ui.widgets.SlidingTabLayout
                 android:background="@color/tab_background"
                 android:id="@+id/sliding_tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout
+        <com.sachinshinde.lollipopappcompatskeleton.ui.widgets.MultiSwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/header"
             app:foreground="@drawable/header_shadow">
 
             <!-- Sessions fragments showing each day of the conference -->
@@ -40,10 +43,17 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-        </com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout>
+        </com.sachinshinde.lollipopappcompatskeleton.ui.widgets.MultiSwipeRefreshLayout>
 
-        <include layout="@layout/include_butter_bar" />
-    </LinearLayout>
+        <!-- Butter bar -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <include layout="@layout/include_butter_bar" />
+        </FrameLayout>
+    </RelativeLayout>
 
     <!-- Nav drawer -->
     <include layout="@layout/navdrawer" />

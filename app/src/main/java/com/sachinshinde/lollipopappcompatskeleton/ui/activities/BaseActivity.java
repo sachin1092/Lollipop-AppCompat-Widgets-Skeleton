@@ -30,8 +30,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sachinshinde.lollipopappcompatskeleton.R;
-import com.sachinshinde.lollipopappcompatskeleton.ui.views.MultiSwipeRefreshLayout;
-import com.sachinshinde.lollipopappcompatskeleton.ui.views.ScrimInsetsScrollView;
+import com.sachinshinde.lollipopappcompatskeleton.ui.widgets.MultiSwipeRefreshLayout;
+import com.sachinshinde.lollipopappcompatskeleton.ui.widgets.ScrimInsetsScrollView;
 import com.sachinshinde.lollipopappcompatskeleton.utils.UIUtils;
 
 import java.util.ArrayList;
@@ -445,9 +445,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
                 @Override
                 public void run() {
                     goToNavDrawerItem(itemId);
-                    if (mainContent != null) {
-                        mainContent.animate().alpha(1).setDuration(MAIN_CONTENT_FADEOUT_DURATION);
-                    }
                 }
             }, NAVDRAWER_LAUNCH_DELAY);
 
