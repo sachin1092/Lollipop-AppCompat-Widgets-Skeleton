@@ -9,6 +9,7 @@ Based on Google IO, makes easier for developers to add features from the app.
 Features include:
 * FAB
 * Google+ Progress Dialog
+* CardView
 * AppCompat Switch
 * Tint EditText
 * Tint CheckBox
